@@ -2,6 +2,7 @@
 
 namespace Domain\Recipes\Models;
 
+use Database\Factories\RecipeFactory;
 use Domain\MealPlanning\Models\Meal;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -10,6 +11,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Recipe extends Model
 {
     use HasFactory;
+
+    protected static function newFactory()
+    {
+        return RecipeFactory::new();
+    }
 
     protected $fillable = [
         'external_id',
